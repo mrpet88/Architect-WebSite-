@@ -1,0 +1,201 @@
+html {
+    width: 100%;
+    height: 100vh;
+
+}
+
+body {
+    background-color: whitesmoke;
+/*        #d6c2a9;*/
+
+}
+
+.navbar {
+    padding: 0px;
+    background: white;
+}
+
+.navbar-brand {
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo {
+    height: 12vh;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav-item {
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+.home,
+.projects,
+.contact {
+    font-size: 15px;
+}
+
+.home {
+    border-left: solid 1px #909090;
+    border-right: solid 1px #909090;
+    margin-top: 3px;
+}
+
+.projects {
+    border-right: solid 1px #909090;
+    margin-top: 3px;
+}
+
+.contact {
+    border-right: solid 1px #909090;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+}
+
+.body-image {
+    height: 78vh;
+    margin-top: 12vh;
+    position: relative;
+    text-align: center;
+    margin-bottom: 12vh;
+
+
+}
+
+#slider {
+    height: 100%;
+    width: 100%;
+}
+
+#pB{
+/*.paragraph-button {*/
+    width: 100%;
+    position: absolute;
+    top: 50%;
+     color: white;
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    text-shadow: 4px 4px 4px #909090;
+    font-weight: bold;
+    
+}
+
+.small-paragraph {
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    text-shadow: 4px 4px 4px #909090;
+    font-weight: bold;
+
+}
+
+.align-button {
+    align-self: center;
+}
+
+.align-button > button {
+    color: black;
+    border-color: white;
+}
+
+.align-button > button:hover {
+    color: silver;
+    background: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    background-color: #ffffff8a;
+    margin-bottom: 12vh;
+    background-image: url(backgroundfooter.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+#slider {
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+#slider.fadeOut {
+    opacity: 0;
+}
+
+#pB {
+    opacity: 1;    
+    transition: opacity 1.5s;
+}
+
+#pB.fadeOut {
+    opacity: 0;
+}
+
+.first-box,
+.second-box,
+.third-box {
+    position: relative;
+    max-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: #484646a3;
+    box-shadow: -5px 3px 18px 3px rgba(72, 70, 70, 0.64);
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    padding-top: 30px;
+}
+
+.row {
+    justify-content: space-around;
+    width: 100%;
+}
+.description-paragraph{
+    max-height: 40vh;
+    padding: 2px;
+    
+}
+
+.small-image {
+    min-height: 72px;
+    width: 72px;
+    border-radius: 49.9%;
+    box-sizing: border-box;
+    background-clip: content-box;
+    box-shadow: inset 0 1.5px 3px 0 rgba(0, 0, 0, .15), 0 1.5px 3px 0 rgba(0, 0, 0, .15);
+    border: 2px solid rgba(72, 70, 70, 0.64);
+    background-image: url(ME.jpg);
+    background-size: contain;
+    background-repeat: no-repeat; 
+    position: absolute;
+    top: -36px;
+}
+.name {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+.name::after {
+    content: " - Architect";
+}
+.none{
+    display: none;
+}
+

@@ -1,0 +1,116 @@
+var imgArray = [
+    'example01.jpg',
+    'example02.jpg',
+    'example03.jpg',
+    ],
+    curIndex = 0;
+imgDuration = 3000;
+
+var p1 = document.createElement('p');
+p1.classList.add('small-paragraph');
+p1.innerHTML = "Describe the First Page."
+document.getElementById("pB").appendChild(p1);
+var a1 = document.createElement('a');
+a1.classList.add("align-button")
+document.getElementById("pB").appendChild(a1);
+var button1 = document.createElement('button');
+button1.setAttribute("type", "button");
+button1.classList.add("btn");
+button1.innerHTML = "First Page Link"
+a1.appendChild(button1);
+
+var p2 = document.createElement('p');
+p2.classList.add('small-paragraph');
+p2.innerHTML = "Describe the Second Page."
+document.getElementById("pB").appendChild(p2);
+var a2 = document.createElement('a');
+a2.classList.add("align-button")
+document.getElementById("pB").appendChild(a2);
+var button2 = document.createElement('button');
+button2.setAttribute("type", "button");
+button2.classList.add("btn");
+button2.innerHTML = "Second Page Link"
+a2.appendChild(button2);
+
+var p3 = document.createElement('p');
+p3.classList.add('small-paragraph');
+p3.innerHTML = "Describe the Third Page."
+document.getElementById("pB").appendChild(p3);
+var a3 = document.createElement('a');
+a3.classList.add("align-button")
+document.getElementById("pB").appendChild(a3);
+var button3 = document.createElement('button');
+button3.setAttribute("type", "button");
+button3.classList.add("btn");
+button3.innerHTML = "Third Page Link"
+a3.appendChild(button3);
+
+
+var paraArray = [p1, p2, p3]
+var aArray = [a1, a2, a3]
+
+
+
+//    var p = document.createElement('p');
+//    p.classList.add('small-paragraph');
+//    p.innerHTML = "Lorem ipsum dolor sit amet, consectetur."
+//    document.getElementById("pB").appendChild(p);
+//var a = document.createElement('a');
+//a.classList.add("align-button")
+//document.getElementById("pB").appendChild(a);
+//var button = document.createElement('button');
+//button.setAttribute("type", "button");
+//button.classList.add("btn");
+//button.innerHTML = "Secondary"
+//a.appendChild(button);
+//    
+
+
+
+
+
+function slideShow() {
+
+    document.getElementById('slider').className += "fadeOut";
+    document.getElementById('pB').className += "fadeOut";
+    setTimeout(function () {
+        document.getElementById('slider').src = imgArray[curIndex];
+        document.getElementById('pB').src = paraArray[curIndex];
+        document.getElementById('slider').className = "";
+        document.getElementById('pB').className = "";
+   
+    curIndex++;
+    if ((paraArray.indexOf(p1) == [curIndex] - 1)) {
+        console.log("true")
+        p1.className = "fadeOut"
+        p2.className = "none"
+        p3.className = "none"
+        a1.className="fadeOut"
+        a2.className="none"
+        a3.className="none"
+
+    } else if ((paraArray.indexOf(p2) == [curIndex] - 1)) {
+        console.log("true")
+        p2.className = "fadeOut"
+        p1.className = "none"
+        p3.className = "none"
+         a2.className="fadeOut"
+        a1.className="none"
+        a3.className="none"
+    } else if ((paraArray.indexOf(p3) == [curIndex] - 1)) {
+        console.log("true")
+        p1.className = "none"
+        p2.className = "none"
+        p3.className = "fadeOut"
+        a3.className="fadeOut"
+        a1.className="none"
+        a2.className="none"
+    }
+         }, 1500);
+    if ((curIndex == imgArray.length) && (curIndex == paraArray.length)) {
+        curIndex = 0;
+    }
+    setTimeout(slideShow, imgDuration);
+}
+slideShow();
+
