@@ -1,10 +1,12 @@
+loadBehaviour();
+
 var imgArray = [
     'example01.jpg',
     'example02.jpg',
     'example03.jpg',
     ],
     curIndex = 0;
-imgDuration = 3000;
+imgDuration = 7500;
 
 var p1 = document.createElement('p');
 p1.classList.add('small-paragraph');
@@ -45,29 +47,8 @@ button3.classList.add("btn");
 button3.innerHTML = "Third Page Link"
 a3.appendChild(button3);
 
-
 var paraArray = [p1, p2, p3]
 var aArray = [a1, a2, a3]
-
-
-
-//    var p = document.createElement('p');
-//    p.classList.add('small-paragraph');
-//    p.innerHTML = "Lorem ipsum dolor sit amet, consectetur."
-//    document.getElementById("pB").appendChild(p);
-//var a = document.createElement('a');
-//a.classList.add("align-button")
-//document.getElementById("pB").appendChild(a);
-//var button = document.createElement('button');
-//button.setAttribute("type", "button");
-//button.classList.add("btn");
-//button.innerHTML = "Secondary"
-//a.appendChild(button);
-//    
-
-
-
-
 
 function slideShow() {
 
@@ -78,35 +59,33 @@ function slideShow() {
         document.getElementById('pB').src = paraArray[curIndex];
         document.getElementById('slider').className = "";
         document.getElementById('pB').className = "";
-   
-    curIndex++;
-    if ((paraArray.indexOf(p1) == [curIndex] - 1)) {
-        console.log("true")
-        p1.className = "fadeOut"
-        p2.className = "none"
-        p3.className = "none"
-        a1.className="fadeOut"
-        a2.className="none"
-        a3.className="none"
 
-    } else if ((paraArray.indexOf(p2) == [curIndex] - 1)) {
-        console.log("true")
-        p2.className = "fadeOut"
-        p1.className = "none"
-        p3.className = "none"
-         a2.className="fadeOut"
-        a1.className="none"
-        a3.className="none"
-    } else if ((paraArray.indexOf(p3) == [curIndex] - 1)) {
-        console.log("true")
-        p1.className = "none"
-        p2.className = "none"
-        p3.className = "fadeOut"
-        a3.className="fadeOut"
-        a1.className="none"
-        a2.className="none"
-    }
-         }, 1500);
+        curIndex++;
+        if ((paraArray.indexOf(p1) == [curIndex] - 1)) {
+            p1.className = "fadeOut"
+            p2.className = "none"
+            p3.className = "none"
+            a1.className = "fadeOut"
+            a2.className = "none"
+            a3.className = "none"
+
+        } else if ((paraArray.indexOf(p2) == [curIndex] - 1)) {
+            p2.className = "fadeOut"
+            p1.className = "none"
+            p3.className = "none"
+            a2.className = "fadeOut"
+            a1.className = "none"
+            a3.className = "none"
+        } else if ((paraArray.indexOf(p3) == [curIndex] - 1)) {
+
+            p1.className = "none"
+            p2.className = "none"
+            p3.className = "fadeOut"
+            a3.className = "fadeOut"
+            a1.className = "none"
+            a2.className = "none"
+        }
+    }, 1500);
     if ((curIndex == imgArray.length) && (curIndex == paraArray.length)) {
         curIndex = 0;
     }
@@ -114,3 +93,88 @@ function slideShow() {
 }
 slideShow();
 
+function loadBehaviour() {
+    $(window).on('load', function () {
+        console.log($(window).width())
+
+
+        if ($(window).width() > 800) {
+         
+            $('.prev').addClass("none");
+            $('.next').addClass("none");
+            $('.row').removeClass('slideshow-container');
+            $('.first-box').removeClass('mySlides');
+            $('.second-box').removeClass('mySlides');
+            $('.third-box').removeClass('mySlides');
+        } else {
+            console.log($(window).width())
+            $('.prev').removeClass("none");
+            $('.next').removeClass("none");
+            $('.first-box').addClass('mySlides');
+            $('.second-box').addClass('mySlides');
+            $('.third-box').addClass('mySlides');
+            $('.row').addClass('slideshow-container');
+        }
+    })
+}
+resizeFunction()
+var slideIndex = 1;
+
+function resizeFunction() {
+    $(window).on('resize', function () {
+        if ($(window).width() > 800) {
+            $('.prev').addClass("none");
+            $('.next').addClass("none");
+            $('.row').removeClass('slideshow-container');
+
+
+            $('.first-box').removeClass('mySlides');
+            $('.second-box').removeClass('mySlides');
+            $('.third-box').removeClass('mySlides');
+
+        } else {
+            console.log($(window).width())
+            $('.prev').removeClass("none");
+            $('.next').removeClass("none");
+            $('.first-box').addClass('mySlides');
+            $('.second-box').addClass('mySlides');
+            $('.third-box').addClass('mySlides');
+            $('.row').addClass('slideshow-container');
+            showSlides(slideIndex);
+
+        }
+    })
+}
+
+
+
+
+//if($(window).width()<800){
+//}
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+
+}

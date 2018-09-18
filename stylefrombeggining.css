@@ -6,8 +6,7 @@ html {
 
 body {
     background-color: whitesmoke;
-/*        #d6c2a9;*/
-
+    /*        #d6c2a9;*/
 }
 
 .navbar {
@@ -78,17 +77,17 @@ body {
     width: 100%;
 }
 
-#pB{
-/*.paragraph-button {*/
+#pB {
+    /*.paragraph-button {*/
     width: 100%;
     position: absolute;
     top: 50%;
-     color: white;
+    color: white;
     font-family: 'Amatic SC', cursive;
     font-size: 25px;
     text-shadow: 4px 4px 4px #909090;
     font-weight: bold;
-    
+
 }
 
 .small-paragraph {
@@ -117,6 +116,7 @@ body {
 .footer {
     display: flex;
     justify-content: center;
+    justify-content: center;
     flex-direction: column;
     height: 50vh;
     background-color: #ffffff8a;
@@ -126,6 +126,13 @@ body {
     background-size: cover;
     background-position: center;
     width: 100%;
+}
+
+.row {
+    justify-content: space-around;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #slider {
@@ -138,7 +145,7 @@ body {
 }
 
 #pB {
-    opacity: 1;    
+    opacity: 1;
     transition: opacity 1.5s;
 }
 
@@ -163,14 +170,10 @@ body {
     padding-top: 30px;
 }
 
-.row {
-    justify-content: space-around;
-    width: 100%;
-}
-.description-paragraph{
+
+.description-paragraph {
     max-height: 40vh;
     padding: 2px;
-    
 }
 
 .small-image {
@@ -183,19 +186,23 @@ body {
     border: 2px solid rgba(72, 70, 70, 0.64);
     background-image: url(ME.jpg);
     background-size: contain;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     position: absolute;
     top: -36px;
 }
+
 .name {
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: bolder;
 }
+
 .name::after {
     content: " - Architect";
 }
-.none{
+
+.none {
     display: none;
 }
+
 
