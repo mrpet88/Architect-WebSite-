@@ -1,5 +1,6 @@
 loadBehaviour();
 
+
 var imgArray = [
     'example01.jpg',
     'example02.jpg',
@@ -8,6 +9,7 @@ var imgArray = [
     curIndex = 0;
 imgDuration = 7500;
 
+slideShow();
 var p1 = document.createElement('p');
 p1.classList.add('small-paragraph');
 p1.innerHTML = "Describe the First Page."
@@ -91,47 +93,18 @@ function slideShow() {
     }
     setTimeout(slideShow, imgDuration);
 }
-slideShow();
 
 function loadBehaviour() {
+    console.log(1)
     $(window).on('load', function () {
-        console.log($(window).width())
-
-
         if ($(window).width() > 800) {
-         
+
             $('.prev').addClass("none");
             $('.next').addClass("none");
             $('.row').removeClass('slideshow-container');
             $('.first-box').removeClass('mySlides');
             $('.second-box').removeClass('mySlides');
             $('.third-box').removeClass('mySlides');
-        } else {
-            console.log($(window).width())
-            $('.prev').removeClass("none");
-            $('.next').removeClass("none");
-            $('.first-box').addClass('mySlides');
-            $('.second-box').addClass('mySlides');
-            $('.third-box').addClass('mySlides');
-            $('.row').addClass('slideshow-container');
-        }
-    })
-}
-resizeFunction()
-var slideIndex = 1;
-
-function resizeFunction() {
-    $(window).on('resize', function () {
-        if ($(window).width() > 800) {
-            $('.prev').addClass("none");
-            $('.next').addClass("none");
-            $('.row').removeClass('slideshow-container');
-
-
-            $('.first-box').removeClass('mySlides');
-            $('.second-box').removeClass('mySlides');
-            $('.third-box').removeClass('mySlides');
-
         } else {
             console.log($(window).width())
             $('.prev').removeClass("none");
@@ -141,16 +114,36 @@ function resizeFunction() {
             $('.third-box').addClass('mySlides');
             $('.row').addClass('slideshow-container');
             showSlides(slideIndex);
-
         }
     })
 }
+var slideIndex = 1;
+$(window).on('resize', function () {
+    if ($(window).width() > 800) {
 
+        $('.prev').addClass("none");
+        $('.next').addClass("none");
+        
+        $('.row').removeClass('slideshow-container');
+        
+        $('.first-box').removeClass('mySlides');
+        $('.second-box').removeClass('mySlides');
+        $('.third-box').removeClass('mySlides');
 
+        $('.first-box').removeAttr('style');
+        $('.second-box').removeAttr('style');
+        $('.third-box').removeAttr('style');
 
-
-//if($(window).width()<800){
-//}
+    } else if ($(window).width() < 800) {
+        $('.prev').removeClass("none");
+        $('.next').removeClass("none");
+        $('.first-box').addClass('mySlides');
+        $('.second-box').addClass('mySlides');
+        $('.third-box').addClass('mySlides');
+        $('.row').addClass('slideshow-container');
+        showSlides(slideIndex);
+    }
+})
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
